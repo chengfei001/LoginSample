@@ -9,8 +9,8 @@
           "height" : 1
         },
         "cap-insets" : {
-          "bottom" : 30,
-          "top" : 30,
+          "bottom" : 29,
+          "top" : 31,
           "right" : 6,
           "left" : 6
         }
@@ -44,11 +44,11 @@
         "center" : {
           "mode" : "tile",
           "width" : 1,
-          "height" : 1
+          "height" : 4
         },
         "cap-insets" : {
           "bottom" : 91,
-          "top" : 91,
+          "top" : 88,
           "right" : 17,
           "left" : 17
         }

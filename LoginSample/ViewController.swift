@@ -23,6 +23,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     
+    @IBOutlet weak var login: UIButton!
+    //自定义
+    let spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -78,6 +83,18 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func loginTapper(_ sender: Any) {
+        
+        
+        self.login.addSubview(self.spinner)
+        self.spinner.frame.origin = CGPoint(x: 10, y: 12)
+        self.spinner.startAnimating();
+        
+        login.center.x = login.center.x - 30
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.04, initialSpringVelocity: 0, options: [], animations: {
+            self.login.center.x = self.login.center.x + 30
+        }, completion: nil)
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: [], animations: {
@@ -108,10 +125,10 @@ class ViewController: UIViewController {
         }, completion: nil)
         
         
-        UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.4, delay: 0.5, options: .curveEaseIn, animations: {
             self.username.center.x = self.username.center.x + self.view.bounds.width
         }, completion: nil)
-        UIView.animate(withDuration: 0.4, delay: 0.1, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.4, delay: 0.6, options: .curveEaseIn, animations: {
             self.password.center.x = self.password.center.x + self.view.bounds.width
         }, completion: nil)
         
