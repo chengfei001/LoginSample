@@ -24,8 +24,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     
     @IBOutlet weak var login: UIButton!
-    //自定义
+   
+     @IBOutlet weak var warning: UIButton!
+    
+    //自定义动图
     let spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    
+    var loginPosition = CGPoint()
     
     
     override func viewDidLoad() {
@@ -69,12 +74,11 @@ class ViewController: UIViewController {
         
         
         
-//        self.bubble1.transform = CGAffineTransform(scaleX: 1, y: 1)
-//        self.bubble2.transform = CGAffineTransform(scaleX: 1, y: 1)
-//        self.bubble3.transform = CGAffineTransform(scaleX: 1, y: 1)
-//        self.bubble4.transform = CGAffineTransform(scaleX: 1, y: 1)
-//        self.bubble5.transform = CGAffineTransform(scaleX: 1, y: 1)
-//        
+        
+        self.warning.isHidden = true;
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,13 +95,27 @@ class ViewController: UIViewController {
         self.spinner.startAnimating();
         
         login.center.x = login.center.x - 30
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.04, initialSpringVelocity: 0, options: [], animations: {
+        UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0, options: [], animations: {
             self.login.center.x = self.login.center.x + 30
-        }, completion: nil)
+        }, completion: { _ in
+            
+            
+            UIView.animate(withDuration: 0.1, animations: {
+                self.login.center.y = self.login.center.y + 90
+                self.spinner.removeFromSuperview()
+            },completion:{ _ in
+                UIView.transition(with: self.warning, duration: 0.1, options:  [.curveEaseOut ,.transitionFlipFromTop], animations: {
+                    self.warning.isHidden = false
+                }, completion: nil)
+               
+               
+                
+            })
+        })
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
-        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: [], animations: {
+        UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: [], animations: {
             self.bubble1.transform = CGAffineTransform(scaleX: 1, y: 1)
             self.bubble2.transform = CGAffineTransform(scaleX: 1, y: 1)
         }, completion: nil)
@@ -109,13 +127,13 @@ class ViewController: UIViewController {
         }, completion: nil)
         
         
-        UIView.animate(withDuration: 0.2, delay: 0.2, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: [], animations: {
+        UIView.animate(withDuration: 0.1, delay: 0.2, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: [], animations: {
             self.bubble3.transform = CGAffineTransform(scaleX: 1, y: 1)
           
         }, completion: nil)
         
         
-        UIView.animate(withDuration: 0.4, delay: 0.3, usingSpringWithDamping: 0.6, initialSpringVelocity: 1, options: [], animations: {
+        UIView.animate(withDuration: 0.1, delay: 0.3, usingSpringWithDamping: 0.6, initialSpringVelocity: 1, options: [], animations: {
             self.logo.center.x = self.logo.center.x + self.view.bounds.width
         }, completion: nil)
         
@@ -125,12 +143,13 @@ class ViewController: UIViewController {
         }, completion: nil)
         
         
-        UIView.animate(withDuration: 0.4, delay: 0.5, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.1, delay: 0.5, options: .curveEaseIn, animations: {
             self.username.center.x = self.username.center.x + self.view.bounds.width
         }, completion: nil)
-        UIView.animate(withDuration: 0.4, delay: 0.6, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.1, delay: 0.6, options: .curveEaseIn, animations: {
             self.password.center.x = self.password.center.x + self.view.bounds.width
         }, completion: nil)
+        
         
   }
 }

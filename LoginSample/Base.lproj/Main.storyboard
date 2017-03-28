@@ -86,6 +86,21 @@
                                     <action selector="loginTapper:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d4d-rG-zCv"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRI-si-R4C">
+                                <rect key="frame" x="45" y="353" width="300" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.90196078430000004" green="0.2156862745" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Invalid username or password" backgroundImage="Button Background">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -100,6 +115,7 @@
                         <outlet property="logo" destination="vqA-BC-spp" id="jd4-Sf-Nws"/>
                         <outlet property="password" destination="PRf-zo-CcI" id="Muf-pr-mqX"/>
                         <outlet property="username" destination="BOu-yw-EFN" id="ZSE-Ig-1Io"/>
+                        <outlet property="warning" destination="JRI-si-R4C" id="3SH-QW-wWC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
